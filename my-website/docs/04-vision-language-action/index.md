@@ -52,9 +52,9 @@ By the end of this module, you will be able to:
 
 | Chapter | Topic | Duration |
 |---------|-------|----------|
-| 4.1 | [Voice Pipeline (Whisper)](./voice-pipeline) | 60 min |
-| 4.2 | [Cognitive Logic (LLMs)](./cognitive-logic) | 90 min |
-| 4.3 | [🎓 Capstone: The Autonomous Humanoid](./capstone-autonomous-humanoid) | 180 min |
+| 4.1 | Voice Pipeline (Whisper) | 60 min |
+| 4.2 | Cognitive Logic (LLMs) | 90 min |
+| 4.3 | 🎓 Capstone: The Autonomous Humanoid | 180 min |
 
 ## 🔑 The VLA Paradigm
 
@@ -259,7 +259,7 @@ sequenceDiagram
 
 Ready to give your robot a voice and intelligence?
 
-**[Start with Voice Pipeline →](./voice-pipeline)**
+**Start with Voice Pipeline** (Coming Soon)
 
 ---
 

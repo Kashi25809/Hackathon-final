@@ -123,9 +123,9 @@ curl -X POST http://localhost:8000/chat \
 
 | Chapter | Topic |
 |---------|-------|
-| [Setup Guide](./setup) | Installation and configuration |
-| [API Reference](./api-reference) | Endpoint documentation |
-| [Integration](./integration) | Frontend integration |
+| Setup Guide | Installation and configuration |
+| API Reference | Endpoint documentation |
+| Integration | Frontend integration |
 
 :::tip Try the Chatbot!
 Look for the floating chat button in the bottom-right corner of any page. Ask questions about ROS 2, Isaac Sim, SLAM, or any topic from this book!

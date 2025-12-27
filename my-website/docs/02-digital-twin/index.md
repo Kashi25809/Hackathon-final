@@ -62,10 +62,10 @@ Simulation is GPU-intensive! For best performance:
 
 | Chapter | Topic | Duration |
 |---------|-------|----------|
-| 2.1 | [Physics Engines (Gazebo)](./physics-engines) | 60 min |
-| 2.2 | [High-Fidelity Rendering (Unity)](./rendering) | 75 min |
-| 2.3 | [Sensor Simulation](./sensor-simulation) | 60 min |
-| 2.4 | [Simulation Environment Deliverable](./simulation-environment) | 90 min |
+| 2.1 | Physics Engines (Gazebo) | 60 min |
+| 2.2 | High-Fidelity Rendering (Unity) | 75 min |
+| 2.3 | Sensor Simulation | 60 min |
+| 2.4 | Simulation Environment Deliverable | 90 min |
 
 ## 🔑 Key Concepts Preview
 
@@ -137,7 +137,7 @@ flowchart LR
 
 Ready to create your robot's virtual world?
 
-**[Start with Physics Engines →](./physics-engines)**
+**Start with Physics Engines** (Coming Soon)
 
 ---
 

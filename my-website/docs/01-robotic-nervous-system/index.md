@@ -62,10 +62,10 @@ You should see output like: `ros2 0.10.x` or similar.
 
 | Chapter | Topic | Duration |
 |---------|-------|----------|
-| 1.1 | [ROS 2 Architecture](./ros2-architecture) | 45 min |
-| 1.2 | [Python Bridging with rclpy](./python-bridging) | 60 min |
-| 1.3 | [Anatomy of a Humanoid (URDF)](./humanoid-anatomy) | 75 min |
-| 1.4 | [Hello Robot Deliverable](./hello-robot-deliverable) | 90 min |
+| 1.1 | ROS 2 Architecture | 45 min |
+| 1.2 | Python Bridging with rclpy | 60 min |
+| 1.3 | Anatomy of a Humanoid (URDF) | 75 min |
+| 1.4 | Hello Robot Deliverable | 90 min |
 
 ## 🔑 Key Concepts Preview
 
@@ -113,7 +113,7 @@ graph TB
 
 Ready to build the nervous system of your humanoid robot? 
 
-**[Start with ROS 2 Architecture →](./ros2-architecture)**
+**Start with ROS 2 Architecture** (Coming Soon)
 
 ---
 

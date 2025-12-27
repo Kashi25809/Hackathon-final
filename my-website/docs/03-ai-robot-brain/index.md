@@ -65,10 +65,10 @@ NVIDIA Isaac requires significant GPU resources:
 
 | Chapter | Topic | Duration |
 |---------|-------|----------|
-| 3.1 | [Isaac Sim for Synthetic Data](./isaac-sim) | 75 min |
-| 3.2 | [Visual SLAM with Isaac ROS](./visual-slam) | 90 min |
-| 3.3 | [Navigation with Nav2](./navigation) | 90 min |
-| 3.4 | [Mapping & Navigation Deliverable](./mapping-navigation) | 120 min |
+| 3.1 | Isaac Sim for Synthetic Data | 75 min |
+| 3.2 | Visual SLAM with Isaac ROS | 90 min |
+| 3.3 | Navigation with Nav2 | 90 min |
+| 3.4 | Mapping & Navigation Deliverable | 120 min |
 
 ## 🔑 The NVIDIA Isaac Ecosystem
 
@@ -185,7 +185,7 @@ flowchart TB
 
 Ready to add AI perception to your humanoid?
 
-**[Start with Isaac Sim →](./isaac-sim)**
+**Start with Isaac Sim** (Coming Soon)
 
 ---
 
