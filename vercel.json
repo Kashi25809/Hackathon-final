@@ -1,5 +1,5 @@
 {
     "buildCommand": "cd my-website && npm install && npm run build",
     "outputDirectory": "my-website/build",
-    "framework": "docusaurus-3"
+    "framework": "docusaurus-2"
 }
