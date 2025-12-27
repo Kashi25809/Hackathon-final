@@ -6,11 +6,9 @@ python-multipart==0.0.19
 # Vector Database
 qdrant-client==1.12.1
 
-# Embeddings (HuggingFace Inference API - no local torch needed)
-requests>=2.28.0
-
-# LLM (Google Gemini for completions and embeddings)
-google-genai>=1.0.0
+# Embeddings (Local sentence-transformers)
+sentence-transformers>=2.2.0
+torch>=2.0.0
 
 # Content Processing
 python-frontmatter==1.1.0

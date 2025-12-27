@@ -11,17 +11,14 @@ load_dotenv()
 BASE_DIR = Path(__file__).parent
 DOCS_PATH = Path(os.getenv("DOCS_PATH", "../docs")).resolve()
 
-# Gemini API (for embeddings and completions)
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-
 # Qdrant Configuration
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", None)
 QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME", "humanoid_robotics_book")
 
-# Embedding Model (Gemini)
-EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "models/text-embedding-004")
-EMBEDDING_DIMENSION = 768  # Gemini text-embedding-004 outputs 768 dimensions
+# Embedding Model (sentence-transformers)
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+EMBEDDING_DIMENSION = 384  # all-MiniLM-L6-v2 outputs 384 dimensions
 
 # Chunking Settings
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "500"))

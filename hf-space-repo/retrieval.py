@@ -1,7 +1,7 @@
 """Retrieval module for semantic search in Qdrant."""
 
 from typing import List, Dict, Any
-from google import genai
+from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 
@@ -12,9 +12,11 @@ class Retriever:
     """Semantic search retriever using Qdrant."""
     
     def __init__(self):
-        self.gemini_client = genai.Client(api_key=config.GEMINI_API_KEY)
-        self.embedding_model = config.EMBEDDING_MODEL
-        print(f"Using Gemini embeddings: {self.embedding_model}")
+        # Use local sentence-transformers model instead of Gemini
+        self.embedding_model_name = config.EMBEDDING_MODEL
+        print(f"Loading embedding model: {self.embedding_model_name}")
+        self.embedding_model = SentenceTransformer(self.embedding_model_name)
+        print(f"Embedding dimension: {self.embedding_model.get_sentence_embedding_dimension()}")
         
         # Connect to Qdrant
         qdrant_url = config.QDRANT_URL
@@ -32,12 +34,9 @@ class Retriever:
         self.collection_name = config.QDRANT_COLLECTION_NAME
     
     def _embed_query(self, query: str) -> List[float]:
-        """Generate embedding for query via Gemini API."""
-        result = self.gemini_client.models.embed_content(
-            model=self.embedding_model,
-            contents=query
-        )
-        return result.embeddings[0].values
+        """Generate embedding for query using sentence-transformers."""
+        embedding = self.embedding_model.encode(query, convert_to_tensor=False)
+        return embedding.tolist()
     
     def search(
         self,
