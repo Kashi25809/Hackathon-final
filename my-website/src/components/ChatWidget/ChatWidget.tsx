@@ -18,7 +18,7 @@ interface ChatWidgetProps {
   apiUrl?: string;
 }
 
-export default function ChatWidget({ apiUrl = 'http://localhost:8000' }: ChatWidgetProps) {
+export default function ChatWidget({ apiUrl = 'https://kashi25809-hackathon.hf.space' }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Initial Welcome Message matching the screenshot

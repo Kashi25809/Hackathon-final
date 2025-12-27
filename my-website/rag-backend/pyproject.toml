@@ -1,0 +1,20 @@
+[project]
+name = "rag-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi==0.115.6",
+    "google-genai>=1.0.0",
+    "httpx==0.28.1",
+    "markdown==3.7",
+    "pytest==8.3.4",
+    "pytest-asyncio==0.25.0",
+    "python-dotenv==1.0.1",
+    "python-frontmatter==1.1.0",
+    "python-multipart==0.0.19",
+    "qdrant-client==1.12.1",
+    "requests>=2.28.0",
+    "uvicorn[standard]==0.34.0",
+]

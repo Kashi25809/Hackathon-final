@@ -8,7 +8,7 @@ export default function LayoutWrapped(props) {
         <>
             <Layout {...props} />
             <div id="z-chat-container" style={{ position: 'fixed', bottom: 10, right: 10, zIndex: 9999999 }}>
-                <ChatWidget apiUrl="http://localhost:8000" />
+                <ChatWidget apiUrl="https://kashi25809-hackathon.hf.space" />
             </div>
         </>
     );
