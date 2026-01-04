@@ -13,7 +13,7 @@ Complete installation and configuration guide for the RAG chatbot backend.
 |-------------|---------|---------|
 | Python | 3.10+ | Runtime |
 | Docker | Latest | Qdrant database |
-| OpenAI API Key | - | Chat completions |
+| Groq API Key | - | Chat completions |
 
 ---
 
@@ -28,7 +28,7 @@ Key packages installed:
 - `fastapi` + `uvicorn` — Web server
 - `sentence-transformers` — Local embeddings
 - `qdrant-client` — Vector database
-- `openai` — Chat completions
+- `groq` — Chat completions
 
 ---
 
@@ -41,8 +41,8 @@ cp .env.example .env
 Edit `.env` with your settings:
 
 ```bash title=".env"
-# Required: OpenAI API key for chat completions
-OPENAI_API_KEY=sk-your-key-here
+# Required: Groq API key for chat completions
+GROQ_API_KEY=gsk_your_key_here
 
 # Qdrant (local Docker)
 QDRANT_URL=http://localhost:6333
@@ -138,7 +138,7 @@ curl -X POST http://localhost:8000/chat \
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `OPENAI_API_KEY` | - | Required for chat |
+| `GROQ_API_KEY` | - | Required for chat |
 | `QDRANT_URL` | `http://localhost:6333` | Vector database URL |
 | `QDRANT_COLLECTION_NAME` | `humanoid_robotics_book` | Collection name |
 | `EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | Sentence transformer model |
@@ -163,9 +163,9 @@ docker restart <container_id>
 - Verify `DOCS_PATH` points to the docs directory
 - Check for `.md` files in the path
 
-### OpenAI API errors
-- Verify API key is valid
-- Check rate limits in OpenAI dashboard
+### Groq API errors
+- Verify API key is valid (starts with `gsk_`)
+- Check rate limits in Groq console
 
 :::info Next Steps
 Once the backend is running, proceed to the [API Reference](./api-reference) to understand the available endpoints.

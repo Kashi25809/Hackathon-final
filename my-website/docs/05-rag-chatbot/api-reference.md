@@ -45,7 +45,7 @@ Query the chatbot with a question.
     }
   ],
   "query": "What is ROS 2?",
-  "model": "gpt-4o-mini"
+  "model": "llama-3.3-70b-versatile"
 }
 ```
 
@@ -147,7 +147,7 @@ Health check endpoint.
 {
   "status": "healthy",
   "qdrant_connected": true,
-  "openai_configured": true
+  "groq_configured": true
 }
 ```
 

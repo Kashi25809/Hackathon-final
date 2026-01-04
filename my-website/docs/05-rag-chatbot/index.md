@@ -35,7 +35,7 @@ By the end of this module, you will:
 
 - **Ingest** book content into a vector database (Qdrant)
 - **Retrieve** relevant passages using semantic search
-- **Generate** accurate answers via OpenAI models
+- **Generate** accurate answers via Groq (Llama 3.3)
 - **Deploy** a FastAPI-based RAG backend
 - **Integrate** the chatbot with the Docusaurus frontend
 
@@ -47,7 +47,7 @@ By the end of this module, you will:
 |-----------|------------|---------|
 | **Embeddings** | `all-MiniLM-L6-v2` | Convert text to vectors (local) |
 | **Vector Store** | Qdrant | Store and search embeddings |
-| **LLM** | OpenAI GPT-4o-mini | Generate grounded responses |
+| **LLM** | Groq Llama 3.3 | Generate grounded responses |
 | **Backend** | FastAPI | REST API for chat |
 | **Frontend** | React Widget | User interface |
 
@@ -59,15 +59,15 @@ sequenceDiagram
     participant Widget as Chat Widget
     participant API as FastAPI
     participant Qdrant
-    participant OpenAI
+    participant Groq
     
     User->>Widget: Ask question
     Widget->>API: POST /chat
     API->>API: Embed query
     API->>Qdrant: Semantic search
     Qdrant-->>API: Top 5 passages
-    API->>OpenAI: Generate with context
-    OpenAI-->>API: Grounded answer
+    API->>Groq: Generate with context
+    Groq-->>API: Grounded answer
     API-->>Widget: Response + sources
     Widget-->>User: Display answer
 ```
@@ -100,7 +100,7 @@ pip install -r requirements.txt
 
 # 2. Configure environment
 cp .env.example .env
-# Edit .env with your OpenAI API key
+# Edit .env with your Groq API key
 
 # 3. Start Qdrant (Docker)
 docker run -p 6333:6333 qdrant/qdrant
@@ -123,9 +123,9 @@ curl -X POST http://localhost:8000/chat \
 
 | Chapter | Topic |
 |---------|-------|
-| Setup Guide | Installation and configuration |
-| API Reference | Endpoint documentation |
-| Integration | Frontend integration |
+| [Setup Guide](./setup) | Installation and configuration |
+| [API Reference](./api-reference) | Endpoint documentation |
+| [Integration](./integration) | Frontend integration |
 
 :::tip Try the Chatbot!
 Look for the floating chat button in the bottom-right corner of any page. Ask questions about ROS 2, Isaac Sim, SLAM, or any topic from this book!

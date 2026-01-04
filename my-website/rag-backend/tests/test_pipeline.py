@@ -93,7 +93,7 @@ class TestAPIEndpoints:
         data = response.json()
         assert "status" in data
         assert "qdrant_connected" in data
-        assert "openai_configured" in data
+        assert "groq_configured" in data
 
 
 if __name__ == "__main__":
