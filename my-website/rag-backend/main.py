@@ -85,6 +85,17 @@ async def lifespan(app: FastAPI):
     from database import init_db
     init_db()
     
+    # Auto-ingest if collection is empty
+    try:
+        retriever = get_retriever()
+        stats = retriever.get_collection_stats()
+        if "error" in stats or stats.get("vectors_count", 0) == 0:
+            print("Collection missing or empty. Starting initial ingestion...")
+            from ingest import run_ingestion
+            run_ingestion()
+    except Exception as e:
+        print(f"Startup ingestion check failed: {e}")
+    
     yield
     # Shutdown
     print("RAG Chatbot API shutting down...")

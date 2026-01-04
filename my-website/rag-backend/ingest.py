@@ -9,8 +9,7 @@ import time
 from pathlib import Path
 from typing import List, Dict, Any
 import frontmatter
-from google import genai
-from google.genai import types
+from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
@@ -185,43 +184,28 @@ class TextChunker:
 
 
 class EmbeddingGenerator:
-    """Generate embeddings using Gemini API."""
+    """Generate embeddings using Sentence Transformers (local)."""
     
-    def __init__(self, model_name: str = "models/text-embedding-004"):
-        self.client = genai.Client(api_key=config.GEMINI_API_KEY)
-        self.model_name = model_name
-        self.dimension = 768  # Gemini text-embedding-004 outputs 768 dimensions
-        print(f"Using Gemini embeddings: {model_name}")
+    def __init__(self, model_name: str = config.EMBEDDING_MODEL):
+        self.model = SentenceTransformer(model_name)
+        self.dimension = config.EMBEDDING_DIMENSION
+        print(f"Using local embeddings: {model_name}")
         print(f"Embedding dimension: {self.dimension}")
     
-    def embed_texts(self, texts: List[str], batch_size: int = 20) -> List[List[float]]:
-        """Generate embeddings for a list of texts via Gemini API."""
+    def embed_texts(self, texts: List[str], batch_size: int = 32) -> List[List[float]]:
+        """Generate embeddings for a list of texts."""
         all_embeddings = []
         
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i:i + batch_size]
-            print(f"  Embedding batch {i // batch_size + 1}/{(len(texts) - 1) // batch_size + 1}...")
-            
-            # Embed each text in the batch
-            for text in batch:
-                result = self.client.models.embed_content(
-                    model=self.model_name,
-                    contents=text
-                )
-                all_embeddings.append(result.embeddings[0].values)
-            
-            # Small delay to avoid rate limiting
-            time.sleep(0.1)
-        
-        return all_embeddings
+        # SentenceTransformer handles batching internally efficiently, 
+        # but we can explicit batch if needed.
+        # encode returns numpy array, convert to list
+        embeddings = self.model.encode(texts, batch_size=batch_size, show_progress_bar=True)
+        return embeddings.tolist()
     
     def embed_query(self, query: str) -> List[float]:
         """Generate embedding for a single query."""
-        result = self.client.models.embed_content(
-            model=self.model_name,
-            contents=query
-        )
-        return result.embeddings[0].values
+        embedding = self.model.encode(query)
+        return embedding.tolist()
 
 
 class QdrantStore:
